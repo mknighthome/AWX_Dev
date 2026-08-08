@@ -1,15 +1,16 @@
 ---
-- name: Configure Cisco IOS Switch
+- name: Gather Cisco IOS Facts
   hosts: cisco_routers
-  gather_facts: false
-  connections: network_cli
+  gather_facts: no
+  collections:
+    - cisco.ios
 
   tasks:
-    - name: Set hostname via CLI
-      cisco.ios.ios_config:
-        lines:
-          - hostname Core-Switch-01
-        
-    - name: Save running configuration
-      cisco.ios.ios_config:
-        save_when: modified
+    - name: Get device facts
+      ios_facts:
+
+    - name: Display hardware and software details
+      debug:
+        msg: >
+          The hostname is {{ ansible_net_hostname }} 
+          running version {{ ansible_net_version }}.
