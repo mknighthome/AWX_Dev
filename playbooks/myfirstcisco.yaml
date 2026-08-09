@@ -1,16 +1,17 @@
 ---
-- name: Gather Cisco IOS Facts
+- name: Configure Cisco IOS VLAN and Description
   hosts: all
-  gather_facts: no
+  gather_facts: false
   collections:
     - cisco.ios
 
   tasks:
-    - name: Get device facts
-      ios_facts:
+    - name: Set interface description
+      cisco.ios.ios_config:
+        lines:
+          - description Managed by Ansible AWX
+        parents: interface GigabitEthernet0/1
 
-    - name: Display hardware and software details
-      debug:
-        msg: >
-          The hostname is {{ ansible_net_hostname }} 
-          running version {{ ansible_net_version }}.
+    - name: Save running configuration
+      cisco.ios.ios_config:
+        save_when: modified
