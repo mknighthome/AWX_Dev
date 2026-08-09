@@ -1,6 +1,6 @@
 ---
 - name: Gather Cisco IOS Facts
-  hosts: cisco_routers
+  hosts: inventory
   gather_facts: no
   collections:
     - cisco.ios
