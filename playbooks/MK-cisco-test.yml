@@ -1,4 +1,9 @@
- name: Run show version on remote devices
-  cisco.ios.ios_command:
-    commands: show version
-
+---
+- name: Configure Cisco Devices
+  hosts: cisco_devices
+  gather_facts: no
+  tasks:
+    - name: Run command on Cisco device
+      ios_command:
+        commands:
+          - show version
