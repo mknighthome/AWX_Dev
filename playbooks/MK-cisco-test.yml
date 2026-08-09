@@ -1,19 +1,4 @@
----
-- hosts: all
-  gather_facts: no
+ name: Run show version on remote devices
+  cisco.ios.ios_command:
+    commands: show version
 
-  tasks:
-
-  - name: CONFIGURE BANNER ON CISCO DEVICES
-    ios_banner:
-      banner: login
-      text: "HI MAT"
-      state: present
-
-  - name: SHOW RUN | BEG BANNER 
-    ios_command:
-      commands:
-        - show run | beg HODL
-    register: banner
-
-  - debug: var=banner.stdout_lines
