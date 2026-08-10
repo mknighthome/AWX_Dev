@@ -1,6 +1,6 @@
 ---
 - name: Configure Cisco Devices
-  hosts: cisco_devices
+  hosts: all
   gather_facts: no
   tasks:
     - name: Run command on Cisco device
