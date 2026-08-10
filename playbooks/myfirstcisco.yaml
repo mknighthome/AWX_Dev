@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: true 
   tasks:
-  - name: run show version on remote device
+  - name: run show remote device
     cisco.ios.ios_command:
      commands: 
      - show run
