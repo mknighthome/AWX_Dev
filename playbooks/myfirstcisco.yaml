@@ -1,7 +1,7 @@
 ---
 - name: cisco_sh_ver
   hosts: all
-  gather_facts: true 
+  gather_facts: false 
   tasks:
   - name: run show remote device
     cisco.ios.ios_command:
