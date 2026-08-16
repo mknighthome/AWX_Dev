@@ -8,4 +8,4 @@
      commands: 
      - show run
      - show ver
-  
+    register: output
