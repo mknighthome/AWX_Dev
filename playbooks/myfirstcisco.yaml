@@ -9,3 +9,7 @@
      - show run
      - show ver
     register: output
+    
+  - name: Display command output as a message
+    ansible.builtin.debug:
+      msg: "{{ output.stdout[0] }}"
