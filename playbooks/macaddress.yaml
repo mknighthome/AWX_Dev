@@ -1,0 +1,15 @@
+---
+- name: Get and Display Cisco MAC Address Table
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Execute show mac-address-table
+      cisco.ios.ios_command:
+        commands:
+          - show mac-address-table
+      register: mac_output
+
+    - name: Print MAC Address Table Message
+      ansible.builtin.debug:
+        msg: "{{ mac_output.stdout[0].split('\n') }}"
