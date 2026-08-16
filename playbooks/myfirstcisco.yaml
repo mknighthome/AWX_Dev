@@ -7,4 +7,5 @@
     cisco.ios.ios_command:
      commands: 
      - show run
+     - show ver
   
