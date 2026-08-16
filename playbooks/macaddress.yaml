@@ -7,7 +7,7 @@
     - name: Execute show mac-address-table
       cisco.ios.ios_command:
         commands:
-          - show mac-address-table
+          - show mac address-table
       register: mac_output
 
     - name: Print MAC Address Table Message
